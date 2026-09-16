@@ -6,7 +6,9 @@ state соответствует указанному значению."""
         if dictionary["state"] == status: answer.append(dictionary)
     return answer
 
-def sort_by_date(list_dictionary: list[dict]) -> list[dict]:
+def sort_by_date(list_dictionary: list[dict], value: bool = True) -> list[dict]:
+    """Функция, которая возвращает список словарей, сортированных по дате"""
     list_dictionary.sort(key = lambda x: x["date"])
-    return list_dictionary
+    if value: return list_dictionary[::-1]
+    else: return list_dictionary
 
