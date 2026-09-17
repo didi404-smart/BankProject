@@ -1,17 +1,17 @@
 def filter_by_state(list_dictionary: list[dict], status: str = "EXECUTED") -> list[dict]:
     """Функция возвращает новый список словарей, содержащий только те словари, у которых ключ
     state соответствует указанному значению."""
-    answer = []
+    new_list_dictionary = []
     for dictionary in list_dictionary:
         if dictionary["state"] == status:
-            answer.append(dictionary)
-    return answer
+            new_list_dictionary.append(dictionary)
+    return new_list_dictionary
 
 
-def sort_by_date(list_dictionary: list[dict], value: bool = True) -> list[dict]:
+def sort_by_date(list_dictionary: list[dict], is_value: bool = True) -> list[dict]:
     """Функция, которая возвращает список словарей, сортированных по дате"""
     list_dictionary.sort(key=lambda x: x["date"])
-    if value:
+    if is_value:
         return list_dictionary[::-1]
     else:
         return list_dictionary
