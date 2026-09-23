@@ -2,7 +2,7 @@ from typing import Iterator
 
 
 def filter_by_currency(transactions: list[dict], currency_code: str) -> Iterator[dict]:
-    """Генератор, которая принимает на вход список словарей, представляющих транзакции"""
+    """Генератор, возвращает итератор, который поочередно выдает транзакции, где валюта операции соответствует заданной"""
     for transaction in transactions:
         if transaction:
             if transaction["operationAmount"]["currency"]["code"] == currency_code:
