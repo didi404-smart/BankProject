@@ -28,3 +28,13 @@ widget.py - содержит функции `mask_account_card`, которая 
 
 processing.py - содержит 2 фунции: `filter_by_state` - возвращает новый список словарей, содержащий только те словари, у которых ключ
 state соответствует указанному значению. `sort_by_date` - 
+
+## Тестирование:
+
+test_masks.py - содержит тесты для функций модуля masks.py
+
+test_widget.py - содержит тесты для функций модуля widget.py
+
+test_processing.py - содержит тесты для функций модуля processing.py
+
+conftest.py - содержит 2 фикстуры для test_processing.py

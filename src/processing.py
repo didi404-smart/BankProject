@@ -10,8 +10,4 @@ def filter_by_state(list_of_dictionaries: list[dict], status: str = "EXECUTED") 
 
 def sort_by_date(list_of_dictionaries: list[dict], is_value: bool = True) -> list[dict]:
     """Функция, которая возвращает список словарей, сортированных по дате"""
-    list_of_dictionaries.sort(key=lambda x: x["date"])
-    if is_value:
-        return list_of_dictionaries[::-1]
-    else:
-        return list_of_dictionaries
+    return sorted(list_of_dictionaries, key=lambda x: x["date"], reverse=is_value)
