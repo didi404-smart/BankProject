@@ -6,6 +6,7 @@ from src.decorators import log
 def test_decorators_1(capsys):
     @log()
     def add(x, y):
+        """Функция, которая складывает 2 числа/строки"""
         return x + y
 
     res = add(1, 3)
@@ -17,6 +18,7 @@ def test_decorators_1(capsys):
 def test_decorators_2(capsys):
     @log()
     def div(x, y):
+        """Функция, которая делит число"""
         return x / y
 
     with pytest.raises(ZeroDivisionError):
@@ -30,6 +32,7 @@ def test_decorators_file_1(tmp_path):
 
     @log(filename=str(log_file))
     def mul(x, y):
+        """Функция, которая умножает 2 числа"""
         return x * y
 
     assert mul(2, 6) == 12
@@ -41,6 +44,7 @@ def test_decorators_file_2(tmp_path):
 
     @log(filename=str(log_file))
     def list_item(my_list, my_index):
+        """Функция, которая выводит значение по индексу"""
         return my_list[my_index]
 
     with pytest.raises(IndexError):
