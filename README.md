@@ -35,6 +35,11 @@ generators.py - содержит 3 генератора: `filter_by_currency` - 
 decorators.py - содержит 1 декоратор `log`, который логирует начало и конец выполнения функции, а также ее результаты или возникшие ошибки.
 Декоратор принимает необязательный аргумент filename, который определяет, куда будут записываться логи (в файл или в консоль).
 
+utils.py - содержит 2 функции: `load_transactions_json` - принимает на вход путь до JSON-файла и возвращает список словарей с данными о финансовых транзакциях, `transactions_amount_rub` - принимает на вход транзакцию и возвращает сумму транзакции
+в рублях.
+
+external.py - содержит функцию, которая преобразует валюту в RUB.
+
 ## Тестирование:
 
 test_masks.py - содержит тесты для функций модуля masks.py
@@ -48,3 +53,9 @@ conftest.py - содержит 2 фикстуры для test_processing.py и 1
 test_generators.py - содержит тесты для модуля generators.py
 
 test_decorators.py - содержит тесты и функции для тестирования модуля decorators.py
+
+test_transactions_amount_rub.py - содержит тесты для функции `transactions_amount_rub` модуля utils.py
+
+test_load_transactions_json.py - содержит тесты для функции `load_transactions_json` модуля utils.py
+
+test_external.py - содержит тесты для модуля external_api.py
