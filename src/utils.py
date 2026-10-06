@@ -5,6 +5,7 @@ from src.external_api import get_convert_to_rub
 
 
 def load_transactions_json(path):
+    """принимает на вход путь до JSON-файла и возвращает список словарей с данными о финансовых транзакциях"""
     try:
         with open(path, "r", encoding="utf-8") as file_json:
             data = json.load(file_json)

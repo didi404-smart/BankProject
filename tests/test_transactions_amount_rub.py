@@ -1,7 +1,9 @@
 from unittest.mock import patch
 
-from src.utils import transactions_amount_rub
 import pytest
+
+from src.utils import transactions_amount_rub
+
 
 def test_transactions_amount_rub_1():
     transaction = {
@@ -24,6 +26,7 @@ def test_transactions_amount_rub_2():
         "operationAmount": {"amount": "31957.58", "currency": {"name": "руб.", "code": "RUB"}},
     }
     assert transactions_amount_rub(transaction) == 31957.58
+
 
 def test_transactions_amount_rub_3():
     transaction = {
