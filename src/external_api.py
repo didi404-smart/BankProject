@@ -8,7 +8,7 @@ load_dotenv()
 API_URL = "https://api.apilayer.com/exchangerates_data/convert"
 
 
-def get_convert_to_rub(currency_code: str, amount: float) -> float:
+def get_convert_to_rub(currency_code: str, amount: str) -> float:
     api_key = os.getenv("API_KEY")
     if not api_key:
         raise RuntimeError("API_KEY is not set")
