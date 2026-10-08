@@ -24,10 +24,10 @@ def load_transactions_json(path):
             logger.info("Пустой файл")
             return []
     except FileNotFoundError:
-        logger.warning("Не удалось найти файл, попробуйте снова")
+        logger.error("Не удалось найти файл, попробуйте снова")
         return []
     except JSONDecodeError:
-        logger.warning("Файл содержит неправильный формат")
+        logger.error("Файл содержит неправильный формат")
         return []
 
 
@@ -41,5 +41,5 @@ def transactions_amount_rub(transactions: dict) -> float:
     if code == "RUB":
         logger.info("Операция была в рублях, возвращаем сумму транзакции")
         return float(amount)
-    logger.info("Неккоректная валюта")
+    logger.error("Неккоректная валюта")
     raise ValueError(f"Unsupported currency: {code}")
