@@ -40,6 +40,8 @@ utils.py - содержит 2 функции: `load_transactions_json` - при�
 
 external.py - содержит функцию, которая преобразует валюту в RUB.
 
+file_readers.py - содержит 2 функции. Обе функции возвращают список с словарями. Функция `read_file_csv` читает csv файл. Функция `read_file_excel` читает excel файл.
+
 ## Тестирование:
 
 test_masks.py - содержит тесты для функций модуля masks.py
@@ -59,3 +61,5 @@ test_transactions_amount_rub.py - содержит тесты для функц�
 test_load_transactions_json.py - содержит тесты для функции `load_transactions_json` модуля utils.py
 
 test_external.py - содержит тесты для модуля external_api.py
+
+test_file_readers.py - содержит тесты модуля file_readers.py
