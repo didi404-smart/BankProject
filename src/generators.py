@@ -4,9 +4,13 @@ from typing import Iterator
 def filter_by_currency(transactions: list[dict], currency_code: str) -> Iterator[dict]:
     """возвращает итератор, который поочередно выдает транзакции, где валюта операции соответствует заданной"""
     for transaction in transactions:
-        if transaction:
-            if transaction["operationAmount"]["currency"]["code"] == currency_code:
-                yield transaction
+        # JSON-формат
+        code = transaction.get("operationAmount", {}).get("currency", {}).get("code")
+        # CSV/XLSX-формат
+        if code is None:
+            code = transaction.get("currency_code")
+        if code == currency_code:
+            yield transaction
 
 
 def transaction_descriptions(transactions: list[dict]) -> Iterator[str]:
