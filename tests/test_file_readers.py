@@ -2,7 +2,7 @@ from unittest.mock import mock_open, patch
 
 import pandas as pd
 
-from src.file_readers import read_file_csv, read_file_excel
+from src.file_readers import PROJECT_ROOT, read_file_csv, read_file_excel
 
 
 def test_file_read_csv():
@@ -30,7 +30,7 @@ def test_file_read_excel():
         {"id": 1, "state": "EXECUTED"},
         {"id": 2, "state": "CANCELED"},
     ]
-    mock_read_excel.assert_called_once_with("path.xlsx")
+    mock_read_excel.assert_called_once_with(PROJECT_ROOT / "path.xlsx")
 
 
 def test_file_read_excel_2():

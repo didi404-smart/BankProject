@@ -1,19 +1,30 @@
 import json
 import logging
 from json import JSONDecodeError
+from pathlib import Path
 
 from src.external_api import get_convert_to_rub
 
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+LOG_DIR = PROJECT_ROOT / "logs"
+LOG_DIR.mkdir(exist_ok=True)
+
 logger = logging.getLogger("utils")
-file_handler = logging.FileHandler("logs/utils.log", "w", encoding="utf-8")
+file_handler = logging.FileHandler(LOG_DIR / "utils.log", mode="w", encoding="utf-8")
 file_formatter = logging.Formatter("%(asctime)s %(name)s %(levelname)s: %(message)s")
 file_handler.setFormatter(file_formatter)
 logger.addHandler(file_handler)
+if not logger.handlers:
+    logger.addHandler(file_handler)
 logger.setLevel(logging.DEBUG)
 
 
 def load_transactions_json(path):
     """принимает на вход путь до JSON-файла и возвращает список словарей с данными о финансовых транзакциях"""
+    path = Path(path)
+    if not path.is_absolute():
+        path = PROJECT_ROOT / path
+
     try:
         with open(path, "r", encoding="utf-8") as file_json:
             data = json.load(file_json)

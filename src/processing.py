@@ -3,7 +3,7 @@ def filter_by_state(list_of_dictionaries: list[dict], status: str = "EXECUTED") 
     state соответствует указанному значению."""
     new_list_of_dictionary = []
     for dictionary in list_of_dictionaries:
-        if dictionary["state"] == status:
+        if dictionary.get("state", "") == status:
             new_list_of_dictionary.append(dictionary)
     return new_list_of_dictionary
 
